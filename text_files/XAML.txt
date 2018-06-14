@@ -1,0 +1,226 @@
+Grid Layout
+
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Welcome to Xamarin.Forms!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
+        <Label Grid.Row="1" Text="This is my first app experience!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+
+        <Label Grid.Row="2" Text="You can have as many elements as possible!" 
+           VerticalOptions="Center" 
+           HorizontalOptions="Center" />
+    </Grid>
+	
+	
+	
+	
+	
+	
+	
+	
+Stack Layout 
+
+	<StackLayout Margin="25, 50, 25, 0" WidthRequest="400" VerticalOptions="Start" HorizontalOptions="Center">
+
+        <Label Text="This is the beginning of a new horizon."/>
+        <Label Text=" "/>
+        <Label Text="Enter your first name!"/>
+        <Entry Placeholder="first"/>
+        <Label Text="Enter your middle name!"/>
+        <Entry Placeholder="middle"/>
+        <Label Text="Enter your last name!"/>
+        <Entry Placeholder="last"/>
+
+    </StackLayout>
+	
+	
+	
+		<StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+TabbedPage
+
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Paperboy"
+             xmlns:pages="clr-namespace:Paperboy.Pages"
+             x:Class="Paperboy.MainPage">
+
+
+    <TabbedPage.Children>
+
+        <pages:Page1 Title="Page 1"/>
+        <pages:TestingPage Title="Testing"/>
+        <pages:ListViewPage1 Title="List View"/>
+
+    </TabbedPage.Children>
+    
+</TabbedPage>
+
+
+
+
+
+
+Relative Layout
+
+
+	<RelativeLayout>
+
+            <BoxView Color="Red" x:Name="redBox"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Height,Factor=.15,Constraint=0}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Width,Factor=1,Constraint=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Height,Factor=.8,Constraint=0}"/>
+
+            <BoxView Color="Blue"
+                 RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+                    ElementName=redBox Property=Y,Factor=1,Constraint=20}"
+                 RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                    ElementName=redBox Property=X,Factor=1,Constraint=20}"
+                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Width,Factor=.5,Constraint=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                    Property=Height,Factor=.5,Constraint=0}"/>
+
+        </RelativeLayout>
+		
+		
+		
+		
+		<RelativeLayout>
+
+            <BoxView x:Name="redBox" BackgroundColor="DarkRed"   
+            RelativeLayout.YConstraint="{ConstraintExpression  
+            Type=RelativeToParent,  
+            Property=Height,  
+            Factor=.15,
+            Constant=0}"                       
+            RelativeLayout.HeightConstraint="{ConstraintExpression  
+            Type=RelativeToParent,  
+            Property=Height,  
+            Factor=0.8,
+            Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression  
+            Type=RelativeToParent,  
+            Property=Width,  
+            Factor=1,
+            Constant=0
+            }">                
+            </BoxView>
+
+            <BoxView BackgroundColor="Blue"  
+            RelativeLayout.YConstraint="{ConstraintExpression  
+            Type=RelativeToView,  
+            ElementName=redBox,  
+            Property=Y,  
+            Factor=1, 
+            Constant=20}"  
+            RelativeLayout.XConstraint="{ConstraintExpression  
+            Type=RelativeToView,  
+            ElementName=redBox,  
+            Property=X,  
+            Factor=1, 
+            Constant=20}"
+            RelativeLayout.HeightConstraint="{ConstraintExpression  
+            Type=RelativeToParent,  
+            Property=Height,  
+            Factor=0.5,
+            Constant=0}"
+            RelativeLayout.WidthConstraint="{ConstraintExpression  
+            Type=RelativeToParent,  
+            Property=Width,  
+            Factor=.5,
+            Constant=0
+            }">
+            </BoxView>
+
+        </RelativeLayout>
+		
+		
+		
+		
+		
+		
+
+
+
+
+
+Absolute Layout
+
+	<AbsoluteLayout>  
+           
+		<BoxView  
+			AbsoluteLayout.LayoutBounds="0,0,1,1"  
+			AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"  
+			BackgroundColor="Black">  
+		</BoxView>  
+			  
+	</AbsoluteLayout>  
+
+
+		<AbsoluteLayout>
+
+            <BoxView  
+			AbsoluteLayout.LayoutBounds="0,0,1,1"  
+			AbsoluteLayout.LayoutFlags="HeightProportional, WidthProportional"  
+			BackgroundColor="Black">
+            </BoxView>
+
+            <BoxView Color="White"
+                     AbsoluteLayout.LayoutBounds="1,.5,25,100"
+                     AbsoluteLayout.LayoutFlags="PositionProportional">                
+            </BoxView>
+            <BoxView Color="Red"
+                      AbsoluteLayout.LayoutBounds="0,.5,25,100"
+                      AbsoluteLayout.LayoutFlags="PositionProportional">                
+            </BoxView>
+            <BoxView Color="Blue"
+                      AbsoluteLayout.LayoutBounds=".5,0,100,25"
+                      AbsoluteLayout.LayoutFlags="PositionProportional">                
+            </BoxView>
+
+            <Label AbsoluteLayout.LayoutBounds="115,150,100,100" LineBreakMode="WordWrap">
+
+                <Label.Text>I'm centered on small devices only.</Label.Text>
+                <Label.TextColor>White</Label.TextColor>
+                
+            </Label>
+
+            <Label AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All" LineBreakMode="WordWrap">
+
+                <Label.Text>I'm always going to be at the bottom.</Label.Text>
+                <Label.TextColor>White</Label.TextColor>
+            </Label>
+
+        </AbsoluteLayout>
+
+
+
+		
+Scroll View 
